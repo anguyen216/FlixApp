@@ -67,6 +67,7 @@
                                             <outlet property="posterView" destination="wb1-Wo-2Pl" id="8WD-Ly-BSn"/>
                                             <outlet property="synopsisLabel" destination="aaN-03-KYv" id="OZc-N8-NOH"/>
                                             <outlet property="titleLabel" destination="NGQ-0A-3xV" id="3lB-xH-2Pe"/>
+                                            <segue destination="ESW-in-1dy" kind="show" id="PAL-Yc-zf6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,6 +90,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="64.955357142857139"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="xpz-J8-7Au">
+            <objects>
+                <viewController id="ESW-in-1dy" customClass="MovieDetailsViewController" customModule="FlixApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YrC-pV-6gW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ir2-UZ-hsX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pkR-Z7-4sa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzN-lB-HxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HKg-bi-lUX">

@@ -10,9 +10,9 @@ import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-  @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
   
-  var movies = [[String: Any]]()
+    var movies = [[String: Any]]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,27 +55,40 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     let movie = movies[indexPath.row]
     let title = movie["title"] as! String
     let synopsis = movie["overview"] as! String
-    
+        
     cell.titleLabel.text = title
     cell.synopsisLabel.text = synopsis
-    
+        
     // adding poster view
     let baseUrl = "https://image.tmdb.org/t/p/w185"
     let posterPath = movie["poster_path"] as! String
     let posterUrl = URL(string: baseUrl + posterPath)
-    
+        
     cell.posterView.af.setImage(withURL: posterUrl!)
     return cell
   }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+      
+      
+        // Find the selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+      
+        // pass movie details to the details view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        // clean up selection
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+    
 
 }
