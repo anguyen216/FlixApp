@@ -118,9 +118,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ArJ-b0-usx">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ArJ-b0-usx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tku-68-wlY">
                                     <size key="itemSize" width="183" height="258"/>
@@ -152,6 +151,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EVV-vd-Fcr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ArJ-b0-usx" firstAttribute="top" secondItem="r4N-Mi-etA" secondAttribute="top" id="Kvh-GO-0Td"/>
+                            <constraint firstItem="ArJ-b0-usx" firstAttribute="trailing" secondItem="EVV-vd-Fcr" secondAttribute="trailing" id="PpZ-6f-j4E"/>
+                            <constraint firstItem="ArJ-b0-usx" firstAttribute="leading" secondItem="EVV-vd-Fcr" secondAttribute="leading" id="fvc-zW-vJ0"/>
+                            <constraint firstAttribute="bottom" secondItem="ArJ-b0-usx" secondAttribute="bottom" id="xAu-Ok-vMX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Superhero" id="3UL-Ww-Suh"/>
                     <connections>
