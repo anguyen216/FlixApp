@@ -1,21 +1,23 @@
 //
-//  MovieDetailsViewController.swift
+//  SuperheroDetailsViewController.swift
 //  FlixApp
 //
-//  Created by Anh Nguyen on 2/24/21.
+//  Created by Anh Nguyen on 2/25/21.
 //
 
 import UIKit
-import Alamofire
+import AlamofireImage
 
-class MovieDetailsViewController: UIViewController {
-
+class SuperheroDetailsViewController: UIViewController {
+    
     var movie: [String: Any]!
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UITextView!
     
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
