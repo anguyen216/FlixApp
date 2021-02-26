@@ -41,15 +41,19 @@ class SuperheroTrailerViewController: UIViewController, WKUIDelegate {
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
                 self.videos = dataDictionary?["results"] as! [[String: Any]]
-                print(self.videos)
-                let subtitledTrailer = self.videos[0]
-                let trailerYoutubeKey = subtitledTrailer["key"] as! String
-                
-                // setting Youtube URL to trailer
-                let youtubeUrl = "https://www.youtube.com/watch?v="
-                let trailerUrl = URL(string: youtubeUrl + trailerYoutubeKey)
-                let trailerRequest = URLRequest(url: trailerUrl!)
-                self.trailerView.load(trailerRequest)
+                //print(self.videos)  // for debugging
+                if 0 < self.videos.count {
+                    let subtitledTrailer = self.videos[0]
+                    let trailerYoutubeKey = subtitledTrailer["key"] as! String
+                    
+                    // setting Youtube URL to trailer
+                    let youtubeUrl = "https://www.youtube.com/watch?v="
+                    let trailerUrl = URL(string: youtubeUrl + trailerYoutubeKey)
+                    let trailerRequest = URLRequest(url: trailerUrl!)
+                    self.trailerView.load(trailerRequest)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
              }
           }
           task.resume()
