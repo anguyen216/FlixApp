@@ -322,8 +322,18 @@
                     <view key="view" contentMode="scaleToFill" id="kgJ-Yg-Koa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-3j-jRS">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dJH-KR-6j8"/>
-                        <color key="backgroundColor" red="0.34143494260000001" green="0.49469721500000002" blue="0.3685576552" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trailer" id="HTR-1f-Fbj">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="AqZ-Nj-68d">
@@ -332,10 +342,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="trailerView" destination="s8i-3j-jRS" id="0hG-mQ-Rhv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-fE-wUQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-465" y="2488"/>
+            <point key="canvasLocation" x="-465.21739130434787" y="2487.7232142857142"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="HKg-bi-lUX">

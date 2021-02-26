@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import WebKit
 
-class MovieTrailerViewController: UIViewController {
+class MovieTrailerViewController: UIViewController, WKUIDelegate {
     
     var movieId: Int!
     var videos = [[String: Any]]()
-
+    @IBOutlet var trailerView: WKWebView!
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        trailerView = WKWebView(frame: .zero, configuration: webConfiguration)
+        trailerView.uiDelegate = self
+        view = trailerView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,9 +41,15 @@ class MovieTrailerViewController: UIViewController {
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
                 self.videos = dataDictionary?["results"] as! [[String: Any]]
-                let subtitledTrailer = self.videos[2] as! [String: Any]
+                let subtitledTrailer = self.videos[1]
                 let trailerYoutubeKey = subtitledTrailer["key"] as! String
-                print(subtitledTrailer)
+                
+                // setting Youtube URL to trailer
+                let youtubeUrl = "https://www.youtube.com/watch?v="
+                let trailerUrl = URL(string: youtubeUrl + trailerYoutubeKey)
+                let trailerRequest = URLRequest(url: trailerUrl!)
+                self.trailerView.load(trailerRequest)
+                
 
              }
           }
