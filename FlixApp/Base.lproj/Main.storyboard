@@ -184,12 +184,16 @@
                                     <constraint firstAttribute="width" secondItem="sjc-DH-o1e" secondAttribute="height" multiplier="414:337" id="lHO-Sm-X4I"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1u-BZ-QJe">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1u-BZ-QJe">
                                 <rect key="frame" x="20" y="340" width="117" height="170"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="mXa-DZ-GGM"/>
                                     <constraint firstAttribute="width" constant="117" id="zf5-aL-LEJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3p8-8L-wyP" appends="YES" id="9gG-cU-9rh"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-Vx-XlI">
                                 <rect key="frame" x="152" y="440" width="242" height="70"/>
@@ -233,8 +237,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oek-MJ-nNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3p8-8L-wyP">
+                    <connections>
+                        <segue destination="21c-6J-R7G" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="i1B-8L-tla"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1221.7391304347827" y="1062.7232142857142"/>
+            <point key="canvasLocation" x="1222" y="1063"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="xpz-J8-7Au">
@@ -309,7 +318,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzN-lB-HxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="tSh-H5-VOz">
                     <connections>
-                        <segue destination="3rX-SS-MHX" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="1BM-Zu-IBW"/>
+                        <segue destination="3rX-SS-MHX" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="1BM-Zu-IBW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -410,6 +419,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq2-5d-8Fa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-465.21739130434787" y="1779.9107142857142"/>
+        </scene>
+        <!--Trailer-->
+        <scene sceneID="dcw-ty-Izt">
+            <objects>
+                <viewController id="eR6-kD-OjD" customClass="SuperheroTrailerViewController" customModule="FlixApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFO-xS-q8g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8x-ug-vgW">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YU1-qn-4aH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N8x-ug-vgW" firstAttribute="top" secondItem="YU1-qn-4aH" secondAttribute="top" id="DDJ-cn-k2n"/>
+                            <constraint firstItem="N8x-ug-vgW" firstAttribute="leading" secondItem="YU1-qn-4aH" secondAttribute="leading" id="Jga-DQ-uCq"/>
+                            <constraint firstItem="N8x-ug-vgW" firstAttribute="trailing" secondItem="YU1-qn-4aH" secondAttribute="trailing" id="eVj-fa-aAa"/>
+                            <constraint firstAttribute="bottom" secondItem="N8x-ug-vgW" secondAttribute="bottom" id="myV-ss-LfB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trailer" id="Vul-kD-zNc">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="FAn-id-U2i">
+                            <connections>
+                                <action selector="closeTrailer:" destination="eR6-kD-OjD" id="EyP-1j-BYh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="trailerView" destination="N8x-ug-vgW" id="L5J-Oh-L3I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59b-aB-IGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.7391304347827" y="2487.7232142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lM3-6i-gmw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21c-6J-R7G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p9X-Rr-gX3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eR6-kD-OjD" kind="relationship" relationship="rootViewController" id="d4j-J6-Xz2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="liM-mj-WwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="1780"/>
         </scene>
     </scenes>
     <resources>

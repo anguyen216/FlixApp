@@ -1,5 +1,5 @@
 //
-//  MovieTrailerViewController.swift
+//  SuperheroTrailerViewController.swift
 //  FlixApp
 //
 //  Created by Anh Nguyen on 2/25/21.
@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class MovieTrailerViewController: UIViewController, WKUIDelegate {
+class SuperheroTrailerViewController: UIViewController, WKUIDelegate {
     
     var movieId: Int!
     var videos = [[String: Any]]()
@@ -23,7 +23,7 @@ class MovieTrailerViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // explicitly cast movieId into string or else url is printed weird >:b
         let id = String(self.movieId)
         // get the trailer info
@@ -41,6 +41,7 @@ class MovieTrailerViewController: UIViewController, WKUIDelegate {
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
                 self.videos = dataDictionary?["results"] as! [[String: Any]]
+                print(self.videos)
                 let subtitledTrailer = self.videos[0]
                 let trailerYoutubeKey = subtitledTrailer["key"] as! String
                 
@@ -52,12 +53,13 @@ class MovieTrailerViewController: UIViewController, WKUIDelegate {
              }
           }
           task.resume()
-
     }
     
+
     @IBAction func closeTrailer(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     
     /*
     // MARK: - Navigation
