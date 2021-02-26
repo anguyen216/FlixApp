@@ -323,9 +323,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-3j-jRS">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-3j-jRS">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -334,6 +333,12 @@
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dJH-KR-6j8"/>
+                        <constraints>
+                            <constraint firstItem="s8i-3j-jRS" firstAttribute="trailing" secondItem="dJH-KR-6j8" secondAttribute="trailing" id="41x-Xj-QdD"/>
+                            <constraint firstItem="s8i-3j-jRS" firstAttribute="top" secondItem="dJH-KR-6j8" secondAttribute="top" id="7b0-vt-xYt"/>
+                            <constraint firstItem="s8i-3j-jRS" firstAttribute="leading" secondItem="dJH-KR-6j8" secondAttribute="leading" id="I4e-Kp-SWc"/>
+                            <constraint firstAttribute="bottom" secondItem="s8i-3j-jRS" secondAttribute="bottom" id="QtL-fI-ja2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Trailer" id="HTR-1f-Fbj">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="AqZ-Nj-68d">
