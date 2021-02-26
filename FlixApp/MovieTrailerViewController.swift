@@ -49,14 +49,11 @@ class MovieTrailerViewController: UIViewController, WKUIDelegate {
                 let trailerUrl = URL(string: youtubeUrl + trailerYoutubeKey)
                 let trailerRequest = URLRequest(url: trailerUrl!)
                 self.trailerView.load(trailerRequest)
-                
-
              }
           }
           task.resume()
 
     }
-    
     
     @IBAction func closeTrailer(_ sender: Any) {
         dismiss(animated: true, completion: nil)
