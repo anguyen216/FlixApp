@@ -39,9 +39,10 @@ class SuperheroDetailsViewController: UIViewController {
         posterView.layer.borderColor = UIColor.white.cgColor
         
         // get movie backdrop poster
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
-        backdropView.af.setImage(withURL: backdropUrl!)
+        if let backdropPath = movie["backdrop_path"] as? String {
+            let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
+            backdropView.af.setImage(withURL: backdropUrl!)
+        }
     }
     
 
