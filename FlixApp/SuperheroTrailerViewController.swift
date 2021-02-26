@@ -52,7 +52,9 @@ class SuperheroTrailerViewController: UIViewController, WKUIDelegate {
                     let trailerRequest = URLRequest(url: trailerUrl!)
                     self.trailerView.load(trailerRequest)
                 } else {
-                    self.dismiss(animated: true, completion: nil)
+                    let failedUrl = URL(string: "https://www.youtube.com/watch?v=ngAH9dQB5s4")
+                    let failedRequest = URLRequest(url: failedUrl!)
+                    self.trailerView.load(failedRequest)
                 }
              }
           }
